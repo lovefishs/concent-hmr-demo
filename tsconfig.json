@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ES6", "ES7", "ESNext", "DOM", "DOM.Iterable"],
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    // Don't emit; allow Babel to transform files
+    "noEmit": true,
+    // Import non-ES modules as default imports
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist", "build", "lib", "**/*.spec.ts", "**/*.spec.tsx"]
+}
