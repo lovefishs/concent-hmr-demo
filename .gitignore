@@ -1,7 +1,6 @@
 # NodeJS #
 node_modules/
 bower_components/
-dist/
 package-lock.json
 yarn.lock
 npm-debug*
