@@ -1,8 +1,12 @@
 import { AnyObject, CtxM } from '@/models/types'
-import { UserParams } from '@/models/user/types'
+import { SettingsType } from 'concent';
+import { setup } from './setup';
 
-export type Ctx = CtxM<AnyObject, 'user'>
+type Se = SettingsType<typeof setup>;
 
-export type InstSettings = {
-  handleSubmit: (data: UserParams) => Promise<void>
-}
+// setup 参数里用的Ctx 还没有settings
+export type CtxPre = CtxM<AnyObject, 'user'>
+
+// 组件 用的Ctx 已有了settings
+export type Ctx = CtxM<AnyObject, 'user', Se>
+

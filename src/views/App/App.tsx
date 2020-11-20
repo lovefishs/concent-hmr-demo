@@ -8,7 +8,7 @@ import { Ctx } from './types'
 import { setup } from './setup'
 
 const App: React.FC<unknown> = () => {
-  const { settings, moduleState } = useConcent<AnyObject, Ctx>({ setup, module: 'user' })
+  const { settings, moduleState, mr } = useConcent<AnyObject, Ctx>({ setup, module: 'user' })
   const [params, setParams] = React.useState<UserParams>({
     email: '',
     password: '',
@@ -37,7 +37,7 @@ const App: React.FC<unknown> = () => {
         />
       </div>
       <div>
-        <label>Password:</label>
+        <label>Password--:</label>
         <input
           type="password"
           name="password"
@@ -52,6 +52,8 @@ const App: React.FC<unknown> = () => {
         </button>
       </div>
 
+      <h1>{moduleState.token}</h1>
+      <button onClick={mr.combineOtherReducer}>change token</button>
       {moduleState.errorMsg && <div>Message: {moduleState.errorMsg}</div>}
     </div>
   )

@@ -7,6 +7,7 @@ import {
   MODULE_DEFAULT,
   ICtx,
   IAnyObj,
+  IActionCtx,
 } from 'concent'
 
 import * as models from './index'
@@ -46,9 +47,16 @@ export type RootCu = {
 
 export type Modules = keyof RootSt
 
+
+/** 为reducer函数生成actionCtx类型 */
+export type AC<
+  M extends Modules,
+  FullState extends IAnyObj = RootSt[M]
+> = IActionCtx<RootSt, RootCu, M, CtxM<{}, M>, FullState>;
+
 // ********************************
 // 一些常用的基于 Ctx 封装的辅助类型
-// P: Packages
+// P: props类型
 // M: Module Name
 // St: State
 // Se: SettingsType<typeof setup>

@@ -1,3 +1,3 @@
 import state from './state'
 
-export default { state }
+export default { state, reducer: {}, computed: {} }

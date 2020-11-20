@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { run, clearContextIfHot } from 'concent'
+import { run } from 'concent'
 
 import * as models from '@/models'
 import App from '@/views/App'
@@ -21,9 +21,7 @@ render(App)
 
 if (Boolean(module.hot)) {
   module.hot.accept(['models'], () => {
-    // 当传入 true 时控制台会打印：attention: make sure [[clearContextIfHot]] been called before app rendered!
-    // 当模块文件替换后，会报错：Error: no reducerMap found for module:[user]
-    clearContextIfHot()
+    run(models)
   })
   module.hot.accept(['views/App'], () => {
     render(App)
